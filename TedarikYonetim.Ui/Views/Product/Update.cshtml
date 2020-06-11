@@ -1,0 +1,174 @@
+﻿@model TedarikYonetim.Model.Product
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Ürün</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Ürün Güncelle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Ürün Güncelle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form asp-action="Update">
+                            <div class="card-body">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="ProductId" />
+                                <input type="hidden" asp-for="CreateDate" />
+                                <div class="form-group">
+                                    <label class="control-label">Üst Kategori</label>
+                                    <input asp-for="UpperCategoryId" class="form-control" />
+                                    <span asp-validation-for="UpperCategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Alt Kategori</label>
+                                    <input asp-for="SubCategoryId" class="form-control" />
+                                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Ürün Adı</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Tedarikçi Adı</label>
+                                    <input asp-for="SupplierId" class="form-control" />
+                                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Asil Tedarikçi Termini</label>
+                                    <input asp-for="SupplierGetType" class="form-control" />
+                                    <span asp-validation-for="SupplierGetType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Alış Fiyatı</label>
+                                    <input asp-for="BuyPrice" class="form-control" />
+                                    <span asp-validation-for="BuyPrice" class="text-danger"></span>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label class="control-label">Materyal</label>
+                                    <input asp-for="Material" class="form-control" />
+                                    <span asp-validation-for="Material" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Desen</label>
+                                    <input asp-for="Pattern" class="form-control" />
+                                    <span asp-validation-for="Pattern" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Renk</label>
+                                    <input asp-for="Color" class="form-control" />
+                                    <span asp-validation-for="Color" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Paket İçerik</label>
+                                    <input asp-for="PacketContent" class="form-control" />
+                                    <span asp-validation-for="PacketContent" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Açıklama</label>
+                                    <input asp-for="Description" class="form-control" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Ürün Bakımı</label>
+                                    <input asp-for="ProductFix" class="form-control" />
+                                    <span asp-validation-for="ProductFix" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Plasiyer</label>
+                                    <input asp-for="UserId" class="form-control" />
+                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Ürün Durumu</label>
+                                    <input asp-for="ProductState" class="form-control" />
+                                    <span asp-validation-for="ProductState" class="text-danger"></span>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label class="control-label">Genişlik</label>
+                                    <input asp-for="ProductWidth" class="form-control" />
+                                    <span asp-validation-for="ProductWidth" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Derinlik</label>
+                                    <input asp-for="ProductDepth" class="form-control" />
+                                    <span asp-validation-for="ProductDepth" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Yükseklik</label>
+                                    <input asp-for="ProductHeight" class="form-control" />
+                                    <span asp-validation-for="ProductHeight" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Modül Ağırlığı</label>
+                                    <input asp-for="ProductWeight" class="form-control" />
+                                    <span asp-validation-for="ProductWeight" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Modül CBM</label>
+                                    <input asp-for="ModuleCBM" class="form-control" />
+                                    <span asp-validation-for="ModuleCBM" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="KDV" class="control-label"></label>
+                                    <input asp-for="KDV" class="form-control" />
+                                    <span asp-validation-for="KDV" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Paket Sayısı</label>
+                                    <input asp-for="PacketAmount" class="form-control" />
+                                    <span asp-validation-for="PacketAmount" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+        <div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

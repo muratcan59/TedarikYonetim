@@ -1,0 +1,90 @@
+﻿@model IEnumerable<TedarikYonetim.Model.Category>
+
+@{
+    ViewData["Title"] = "SubCategoryList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Kategori</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Alt Kategori Listesi</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Alt Kategori Listesi</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Kategori Adı
+                                    </th>
+                                    <th>
+                                        Kategori Kodu
+                                    </th>
+                                    <th>
+                                        Üst Kategori Adı
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CategoryName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CategoryCode)
+                                        </td>
+                                        @*@if (item.UpperCategory != null)
+                                        {*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UpperCategory.CategoryName)
+                                            </td>
+                                        @*}
+                                        else
+                                        {
+                                            <td></td>
+                                        }*@
+                                        <td>
+                                            <a asp-action="Update" asp-route-id="@item.CategoryId">Düzenle</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.CategoryId">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

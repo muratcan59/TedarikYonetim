@@ -1,0 +1,222 @@
+﻿@model TedarikYonetim.Model.Product
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>General Form</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Ürün Ekle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-8">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Ürün Ekle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" asp-action="Add">
+                            <div class="card-body">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Resim Ekle</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="Picture" type="file" multiple="multiple" class="form-control" />
+                                    </div>
+                                    <br />
+                                    <input type="submit" value="Resim Yükle" />
+                                    <span asp-validation-for="Picture" class="text-danger"></span>
+                                </div><br />
+                                <div style="background-color:#82b6ed; margin-left:-20px; margin-right:-20px;" class="card-header">
+                                    <h3 style="color:white" class="card-title">Tedarik</h3>
+                                </div><br />
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Üst Kategori</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="UpperCategoryId" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="UpperCategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Alt Kategori</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="SubCategoryId" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Ürün Adı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="Name" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Tedarikçi Adı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="SupplierId" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Asil Tedarikçi Termini</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="SupplierGetType" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="SupplierGetType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Alış Fiyatı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="BuyPrice" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="BuyPrice" class="text-danger"></span>
+                                </div><br />
+                                <div style="background-color:#82b6ed; margin-left:-20px; margin-right:-20px;" class="card-header">
+                                    <h3 style="color:white" class="card-title">Ürün Özellikleri</h3>
+                                </div><br />
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Materyal</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="Material" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Material" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Desen</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="Pattern" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Pattern" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Renk</label>
+                                    <div class="col-sm-4"> 
+                                        <input asp-for="Color" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Color" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Paket İçerik</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="PacketContent" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="PacketContent" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Açıklama</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="Description" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Ürün Bakımı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductFix" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductFix" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Plasiyer</label>
+                                    <div class="col-sm-4"> 
+                                        <input asp-for="UserId" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Ürün Durumu</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductState" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductState" class="text-danger"></span>
+                                </div><br />
+                                <div style="background-color:#82b6ed; margin-left:-20px; margin-right:-20px;" class="card-header">
+                                    <h3 style="color:white" class="card-title">Boyut ve Ağırlık</h3>
+                                </div><br />
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Genişlik</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductWidth" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductWidth" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Derinlik</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductDepth" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductDepth" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Yükseklik</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductHeight" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductHeight" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Modül Ağırlığı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ProductWeight" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ProductWeight" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Modül CBM</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="ModuleCBM" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="ModuleCBM" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label asp-for="KDV" class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="KDV" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="KDV" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Paket Sayısı</label>
+                                    <div class="col-sm-4">
+                                        <input asp-for="PacketAmount" style="margin-left:90px;" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="PacketAmount" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Ekle" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+                </div>
+            </div>
+    </div>
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }

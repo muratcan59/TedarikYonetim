@@ -1,0 +1,145 @@
+﻿@model TedarikYonetim.Model.Supplier
+
+@{
+    ViewData["Title"] = "Tedarikçi Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Tedarikçi Güncelle</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Tedarikçi Güncelle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Tedarikçi Güncelle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form asp-action="Update">
+                            <div class="card-body">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="SupplierId" />
+                                <input type="hidden" asp-for="CreateDate" />
+                                <input type="hidden" asp-for="IsDelete" />
+                                <div class="form-group">
+                                    <label class="control-label">Ünvan</label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Marka</label>
+                                    <input asp-for="Brand" class="form-control" />
+                                    <span asp-validation-for="Brand" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Adres</label>
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Ülke</label>
+                                    <input asp-for="Country" class="form-control" />
+                                    <span asp-validation-for="Country" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">İl</label>
+                                    <input asp-for="City" class="form-control" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">İlçe</label>
+                                    <input asp-for="District" class="form-control" />
+                                    <span asp-validation-for="District" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Telefon</label>
+                                    <input asp-for="Phone" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Fax</label>
+                                    <input asp-for="Fax" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Cep Telefonu</label>
+                                    <input asp-for="MobilePhone" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Web Adresi</label>
+                                    <input asp-for="WebUrl" class="form-control" />
+                                    <span asp-validation-for="WebUrl" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">E-Mail</label>
+                                    <input asp-for="EMail" class="form-control" />
+                                    <span asp-validation-for="EMail" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Durum</label>
+                                    <input asp-for="State" class="form-control" />
+                                    <span asp-validation-for="State" class="text-danger"></span>
+                                </div>
+                                <hr />
+                                <div class="form-group">
+                                    <label class="control-label">Vergi Dairesi</label>
+                                    <input asp-for="TaxPlace" class="form-control" />
+                                    <span asp-validation-for="TaxPlace" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Vergi No</label>
+                                    <input asp-for="TaxNo" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Teslim Şekli</label>
+                                    <input asp-for="DeliveryType" class="form-control" />
+                                    <span asp-validation-for="DeliveryType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Ödeme Şekli</label>
+                                    <input asp-for="PayType" class="form-control" />
+                                    <span asp-validation-for="PayType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+        <div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
